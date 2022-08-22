@@ -15,7 +15,7 @@ export LOCAL_INCLUDE="include"
 
 export GCC="/home/joey/bin/bin/i686-elf-gcc"
 export CC_FLAGS="-isystem=$SYS_INCLUDE --sysroot=$SYSROOT -I$LOCAL_INCLUDE -std=gnu99 -ffreestanding -Wall -Wextra -c"
-export LINKER_FLAGS="-isystem=$SYS_INCLUDE --sysroot=$SYSROOT -T linker.ld -I$LOCAL_INCLUDE -o bin/kernel.bin -ffreestanding -nostdlib"
+export LINKER_FLAGS="-isystem=$SYS_INCLUDE --sysroot=$SYSROOT -T linker.ld -Wl,-Map=kernel.map -I$LOCAL_INCLUDE -o bin/kernel.bin -ffreestanding -nostdlib"
 export CLANG_TARGET="-target i386-none-elf"
 
 if [ "$1" == "clean" ]

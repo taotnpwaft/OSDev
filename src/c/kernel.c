@@ -3,9 +3,9 @@
 
 #include "tty.h"
 
-void kernel_main() {
-  uint16_t* term = init_terminal();
+void kernel_main(uint16_t* term) {
+  //extern uint32_t* _HEAP;
 
-  fg_color = WHITE;
-  puts("Hello, World!", term);
+  puts("kernel_main()\n", term);
+  puts("Hello, World!\n", term);
 }

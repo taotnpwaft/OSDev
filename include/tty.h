@@ -23,6 +23,6 @@
 #define YELLOW      0xe
 #define WHITE       0xf
 
-uint16_t* init_terminal();
+void init_terminal();
 
 #endif
