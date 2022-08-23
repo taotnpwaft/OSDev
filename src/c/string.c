@@ -3,7 +3,7 @@
 
 int strlen(char* str) {
   int sum = 0;
-  char i = 0;
+  int i = 0;
   for (;;) {
     if (str[i] != '\0') {
       sum++;
