@@ -13,3 +13,8 @@ int strlen(char* str) {
     }
   }
 }
+
+void memset(void* dest, int ch, int count) {
+  for (int i = 0; i < count; i++)
+    *((uint8_t*)(dest + i)) = ch;
+}
