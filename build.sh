@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 # I plan to write a Makefile once the size of the project permits doing do.
 # For now, a simple build script is more than sufficient. The project is so
 # simple that the whole thing compiles almost instantly.
@@ -15,7 +17,7 @@ export LOCAL_INCLUDE="include"
 
 export GCC="i686-elf-gcc"
 export CC_FLAGS="-isystem=$SYS_INCLUDE --sysroot=$SYSROOT -I$LOCAL_INCLUDE -std=gnu99 -ffreestanding -Wall -Wextra -c"
-export LINKER_FLAGS="-isystem=$SYS_INCLUDE --sysroot=$SYSROOT -T linker.ld -Wl,-Map=kernel.map -I$LOCAL_INCLUDE -o bin/kernel.bin -ffreestanding -nostdlib"
+export LINKER_FLAGS="-isystem=$SYS_INCLUDE -Wl,-v -static --sysroot=$SYSROOT -T linker.ld -Wl,-Map=kernel.map -I$LOCAL_INCLUDE -o bin/kernel.bin -ffreestanding -nostdlib"
 export CLANG_TARGET="-target i386-none-elf"
 
 if [ ! -d "bin" ] 
