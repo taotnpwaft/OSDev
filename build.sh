@@ -25,6 +25,11 @@ then
   mkdir bin
 fi
 
+if [ ! -d "iso/bin" ] 
+then
+  mkdir iso/bin
+fi
+
 if [ "$1" == "clean" ]
 then
   rm -rf *.o
@@ -50,4 +55,4 @@ else
   fi
 fi
 
-cp bin/kernel.bin iso/bin
+cp bin/kernel.bin iso/bin/kernel.bin
