@@ -18,20 +18,23 @@ dd        MBFLAGS
 dd        CHECKSUM
 
 section     .data
+align       4
 VGA_BUFFER  equ 0xb8000
 
 section     .rodata
+align       4
 message:    db 'boot.asm', 0xa, 0
 
 ; Creating space for the stack. We will use these labels later
 ; to intilialize ebp and esp. 16 byte alined as per 
 ; the System V ABI
 section     .bss
-align       16
+align       4
 stack_base: resb        16384
 stack_pointer:  
 
 section   .text
+align     4
 global    _start
 _start:
   mov esp, stack_pointer
