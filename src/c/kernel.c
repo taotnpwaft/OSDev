@@ -3,8 +3,8 @@
 
 #include "tty.h"
 
-fg_color = WHITE;
-bg_color = BLACK;
+int fg_color = WHITE;
+int bg_color = BLACK;
 
 void kernel_main(uint16_t* term) {
   //extern uint32_t* _HEAP;
