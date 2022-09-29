@@ -23,45 +23,51 @@ VGA_BUFFER  equ 0xb8000
 
 section     .rodata
 align       4
-message:    db 'boot.asm', 0xa, 0
+message:    db '_start', 0xa, 0
+paging_message:    db 'enabling paging', 0xa, 0
 
 ; Creating space for the stack. We will use these labels later
-; to intilialize ebp and esp. 16 byte alined as per 
+; to intilialize ebp and esp. 16 byte aligned as per 
 ; the System V ABI
 section     .bss
 align       4
-stack_base: resb        16384
+stack_base: resb  (2048 * 1024) ; 2MB
 stack_pointer:  
 
 section   .text
 align     4
-global    _start
+
+global enable_paging
+enable_paging:
+  push ebp
+  mov ebp, esp
+
+  mov eax, [ebp+8]
+  mov cr3, eax
+  mov eax, cr0
+  or eax, 0x80000000
+  mov cr0, eax
+  
+  pop ebp
+  ret
+
+global _start
 _start:
+  mov ebp, stack_base
   mov esp, stack_pointer
 
-  push ebp
-  mov ebp, esp
   push VGA_BUFFER
   call init_terminal
-  add esp, 0x4
-  pop ebp
 
-  push ebp
-  mov ebp, esp
   push VGA_BUFFER
   push message
   call puts
-  add esp, 0x8
-  pop ebp
 
-  push ebp
-  mov ebp, esp
   push VGA_BUFFER
   call kernel_main
-  add esp, 0x4
-  pop ebp
 
   cli
+  jmp .hang
 .hang:
   hlt
   jmp .hang
