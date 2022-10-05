@@ -7,20 +7,41 @@
       {
         "name": "Linux",
         "intelliSenseMode": "linux-gcc-x64",
-        "includePath": ["${myDefaultIncludePath}", "/include", "/sysroot/usr/include"],
+        "includePath": ["${myDefaultIncludePath}", "/include", "/sysroot/usr/include", ".vscode"],
         
         "defines": ["FOO", "BAR=100"],
         "forcedInclude": ["${workspaceFolder}/include/config.h"],
         "compilerPath": "/usr/bin/clang",
-        "cStandard": "c11",
+        "": "c11",
         "cppStandard": "c++17",
-        "compileCommands": "/path/to/compile_commands.json",
+        "compileCommands": "./compile_commands.json",
         "browse": {
           "path": ["${workspaceFolder}"],
           "limitSymbolsToIncludedHeaders": true,
           "databaseFilename": ""
         }
+      },
+      {
+        "name": "G++ config",
+        "includePath": [
+            "${workspaceFolder}/**",
+            "C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/**"
+        ],
+        "defines": [
+            "_DEBUG",
+            "UNICODE",
+            "_UNICODE"
+        ],
+        "compilerPath": "C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/g++.exe",
+        "forcedInclude": ["${workspaceFolder}/Globals.h"],
+        "cStandard": "c17",
+        "cppStandard": "c++17",
+        "intelliSenseMode": "gcc-x64",
+        "compilerArgs": [
+            "-m64",
+            "-Wall"
+        ]
       }
     ],
     "version": 4
-  }
+}

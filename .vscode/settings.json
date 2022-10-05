@@ -1,0 +1,37 @@
+{
+    "c-cpp-flylint.cppcheck.addons": [
+        "misra",
+        "cert",
+        "threadsafety"
+    ],
+    "c-cpp-flylint.cppcheck.extraArgs": [
+        "-j 16",
+        "-i build/"
+    ],
+    "c-cpp-flylint.clang.enable": true,
+    "c-cpp-flylint.flexelint.enable": false,
+    "c-cpp-flylint.cppcheck.enable": false,
+    "c-cpp-flylint.cppcheck.force": false,
+    "c-cpp-flylint.cppcheck.standard": [
+        "c11",
+        "c++11"
+    ],
+    "c-cpp-flylint.lizard.enable": false,
+    "c-cpp-flylint.flawfinder.enable": false,
+    "c-cpp-flylint.includePaths": [
+        "${workspaceRoot}",
+    ],
+    "c-cpp-flylint.enable": false,
+    "c-cpp-flylint.debug": false,
+    "C_Cpp.clang_format_fallbackStyle": "LLVM",
+    "c-cpp-flylint.flexelint.executable": "flexelint",
+    "c-cpp-flylint.clang.includePaths": [
+        "${workspaceRoot}",
+        ".",
+        "/usr/bin/gcc",
+        "/usr/bin/clang"
+    ],
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/"
+    ],
+}
