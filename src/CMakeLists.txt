@@ -15,14 +15,8 @@ set(SYS_INCLUDE CACHE STRING "/usr/include") # This path is relative to sysroot
 
 target_include_directories(kernel PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
-set(CMAKE_ASM_FLAGS "-f elf32 -o boot.o")
-
-message(STATUS "---- ${CMAKE_ASM_FLAGS} ----")
-message(STATUS "---- ${CMAKE_ASM_DEBUG} ----")
-message(STATUS "---- ${CMAKE_ASM_MINSIZEREL} ----")
-message(STATUS "---- ${CMAKE_ASM_RELWITHDEBINFO} ----")
-
-set(CMAKE_C_FLAGS "-isystem=${SYS_INCLUDE} --sysroot=${SYSROOT} -std=gnu99 -ffreestanding -Wall -Wextra -c")
+set(CMAKE_ASM_FLAGS_RELEASE "-f elf32 -o boot.o")
+set(CMAKE_C_FLAGS_RELEASE "-isystem=${SYS_INCLUDE} --sysroot=${SYSROOT} -std=gnu99 -ffreestanding -Wall -Wextra -c")
 set(CMAKE_EXE_LINKER_FLAGS "-T linker.ld -Wl,-Map=kernel.map -o bin/kernel.bin -ffreestanding -nostdlib")
 
 if (CMAKE_C_COMPILER_ID STREQUAL "Clang")
