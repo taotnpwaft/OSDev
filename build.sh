@@ -20,12 +20,12 @@ export CC_FLAGS="-isystem=$SYS_INCLUDE --sysroot=$SYSROOT -I$LOCAL_INCLUDE -std=
 export LINKER_FLAGS="-isystem=$SYS_INCLUDE --sysroot=$SYSROOT -T linker.ld -Wl,-Map=kernel.map -I$LOCAL_INCLUDE -o bin/kernel.bin -ffreestanding -nostdlib"
 export CLANG_TARGET="-target i386-none-elf"
 
-if [ ! -d "bin" ] 
+if [ ! -d "bin" ]
 then
   mkdir bin
 fi
 
-if [ ! -d "iso/bin" ] 
+if [ ! -d "iso/bin" ]
 then
   mkdir iso/bin
 fi

@@ -1,0 +1,19 @@
+{
+	"configurations": [
+		{
+			"name": "Linux",
+			"cStandard": "c11",
+			"cppStandard": "c++17",
+			"compileCommands": "${workspaceFolder}/build/compile_commands.json"
+		}
+	],
+	"version": 4,
+    "includePath": [
+        "${default}",
+        "${workspaceFolder}/src/**",
+        "${workspaceFolder}/src/include/**",
+        "${workspaceFolder}/bin"
+        ],
+
+    "defines" : []
+}

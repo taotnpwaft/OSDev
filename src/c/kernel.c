@@ -9,9 +9,8 @@ int bg_color = BLACK;
 
 extern void enable_paging(uint32_t* dir);
 
-void kernel_main(uint16_t* term) {
-  //extern uint32_t* _HEAP;
-  puts("kernel_main()\n", term);
+void kernel_main() {
+  puts("kernel_main()\n");
 
   uint32_t page_directory[1024] __attribute__((aligned(4096)));
   for (int i = 0; i < 1024; i++)
@@ -23,7 +22,7 @@ void kernel_main(uint16_t* term) {
     page_table[i] = (i * 0x1000) | 3;
   }
 
-  page_directory[0] = ((unsigned int)page_table) | 3;
-  puts("enabling paging...\n", term);
+  page_directory[0] = ((uintptr_t)page_table) | 3;
+  puts("enabling paging...\n");
   enable_paging(page_directory);
 }

@@ -1,7 +1,7 @@
 #include <string.h>
 #include <stdint.h>
 
-int strlen(char* str) {
+int my_strlen(char* str) {
   int sum = 0;
   int i = 0;
   for (;;) {
@@ -14,7 +14,8 @@ int strlen(char* str) {
   }
 }
 
-void memset(void* dest, int ch, int count) {
+void my_memset(void* dest, int ch, int count) {
+  uint8_t* byte_dest = (uint8_t*)dest;
   for (int i = 0; i < count; i++)
-    *((uint8_t*)(dest + i)) = ch;
+    byte_dest[i] = (uint8_t)ch;
 }
