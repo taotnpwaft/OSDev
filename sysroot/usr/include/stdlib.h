@@ -4,6 +4,13 @@
 #include <stdint.h>
 
 // @@@ TODO: Implement some sort of allocator
-void* malloc(int size);
+
+static char buffer[1024];
+static char* next_free = buffer;
+
+void* malloc(int size) {
+  // @@@ TODO: Implement some sort of allocator
+  return NULL;
+}
 
 #endif

@@ -22,12 +22,12 @@ export CLANG_TARGET="-target i386-none-elf"
 
 if [ ! -d "bin" ]
 then
-  mkdir bin
+  mkdir -p bin
 fi
 
 if [ ! -d "iso/bin" ]
 then
-  mkdir iso/bin
+  mkdir -p iso/bin
 fi
 
 if [ "$1" == "clean" ]

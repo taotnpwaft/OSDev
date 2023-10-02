@@ -9,7 +9,7 @@ int my_strlen(char* str) {
       sum++;
       i++;
     } else {
-      return ++sum;
+      return sum;
     }
   }
 }
@@ -17,5 +17,5 @@ int my_strlen(char* str) {
 void my_memset(void* dest, int ch, int count) {
   uint8_t* byte_dest = (uint8_t*)dest;
   for (int i = 0; i < count; i++)
-    byte_dest[i] = (uint8_t)ch;
+    *((uint8_t*)(byte_dest + i)) = (uint8_t)ch;
 }

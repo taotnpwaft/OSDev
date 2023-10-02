@@ -1,26 +1,24 @@
 #include <stdio.h>
 #include <stdint.h>
-#include <stdio.h>
-#include <stdint.h>
 #include <string.h>
 #include <stddef.h>
+#include "stdio.h"
 
 #include "tty.h"
 
-typedef unsigned long size_t;
+extern int fg_color;
+extern int bg_color;
 
-extern size_t strlen(const char*);
+extern void my_putc_char(char c, uint16_t* buffer);
 
 static int row = 0;
 static int col = 0;
 
-// Global variables for foreground and background colors
-int fg_color; // Replace with the desired default foreground color
-int bg_color; // Replace with the desired default background color
+void my_puts_str(const char* str, uint16_t* buffer);
 
 void my_puts_str(const char* str, uint16_t* buffer) {
-  for (size_t i = 0; i < strlen(str); i++) {
-        my_puts_str(&str[i], buffer);
+  for (int i = 0; i < strlen(str); i++) {
+        my_putc_char(str[i], buffer);
   }
 }
 

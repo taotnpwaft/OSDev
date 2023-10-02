@@ -1,0 +1,33 @@
+- .dist
+- .vscode
+- bin
+- include
+  - getreg.h
+  - tty.h
+- iso
+  - bin
+  - boot
+    - grub
+      - grub.cfg
+- src
+  - asm
+    - boot.asm
+  - c
+    - kernel.c
+    - stdio.c
+    - stdlib.c
+    - string.c
+    - tty.c
+    - tty.h
+- sysroot
+  - usr
+    - stdio.h
+    - stdlib.h
+    - string.h
+- README.md
+- mkiso.sh
+- linker.ld
+- LICENSE
+- kernel.map
+- build.sh
+- .gitignore

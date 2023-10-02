@@ -23,6 +23,9 @@
 #define YELLOW      0xe
 #define WHITE       0xf
 
+extern int fg_color;
+extern int bg_color;
+
 void init_terminal();
 
 #endif

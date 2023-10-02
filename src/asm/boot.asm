@@ -6,7 +6,6 @@ MAGIC       equ 0x1BADB002
 CHECKSUM    equ -(MAGIC + MBFLAGS)
 
 extern puts
-extern putc
 extern kernel_main
 extern init_terminal
 
@@ -27,12 +26,12 @@ message:    db '_start', 0xa, 0
 paging_message:    db 'enabling paging', 0xa, 0
 
 ; Creating space for the stack. We will use these labels later
-; to intilialize ebp and esp. 16 byte aligned as per 
+; to initialize ebp and esp. 16 byte aligned as per
 ; the System V ABI
 section     .bss
 align       4
 stack_base: resb  (2048 * 1024) ; 2MB
-stack_pointer:  
+stack_pointer:
 
 section   .text
 align     4
@@ -47,7 +46,7 @@ enable_paging:
   mov eax, cr0
   or eax, 0x80000000
   mov cr0, eax
-  
+
   pop ebp
   ret
 
